@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Todos"
+        android:id="@+id/nav_todo"/>
+    <item android:title="Informática">
+        <menu>
+            <item
+                android:id="@+id/nav_desk"
+                android:icon="@mipmap/ic_desktop_windows_black_48dp"
+                android:title="Desktops" />
+            <item
+                android:id="@+id/nav_note"
+                android:icon="@mipmap/ic_laptop_windows_black_48dp"
+                android:title="Notebooks" />
+
+            <item
+                android:id="@+id/nav_aces"
+                android:icon="@mipmap/ic_mouse_black_48dp"
+                android:title="Acessórios" />
+        </menu>
+    </item>
+
+
+    <item android:title="Outros">
+        <menu>
+            <item
+                android:id="@+id/nav_smarP"
+                android:icon="@mipmap/ic_phonelink_ring_black_48dp"
+                android:title="Smartphones" />
+
+            <item
+                android:id="@+id/nav_smarT"
+                android:icon="@mipmap/ic_tv_black_48dp"
+                android:title="SmartTVs" />
+            <item
+                android:id="@+id/nav_came"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Cameras" />
+        </menu>
+    </item>
+
+</menu>
