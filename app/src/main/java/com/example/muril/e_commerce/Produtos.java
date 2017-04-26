@@ -2,6 +2,10 @@ package com.example.muril.e_commerce;
 
 
 
+import android.widget.ListView;
+
+import com.example.muril.e_commerce.util.MeuAdapter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -41,6 +45,27 @@ public class Produtos implements Serializable {
 
         return produtos;
 
+    }
+
+    public static ArrayList<Produtos> fazoteste(ArrayList<Produtos> prod, String arg2) {
+
+        String strDepa = arg2;
+
+        for (int i = 0; i < prod.size(); i++) {
+            if (strDepa == null) {
+                prod = Produtos.getProdutos();
+                break;
+            }
+            Produtos prod2 = prod.get(i);
+            String prod3 = prod2.prodDepa;
+            if(prod3 != strDepa) {
+                prod.remove(prod2);
+                i--;
+            }
+        }
+
+
+        return prod;
     }
 
 

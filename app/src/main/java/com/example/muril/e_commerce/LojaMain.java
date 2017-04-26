@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,24 +25,17 @@ import java.util.ArrayList;
 public class LojaMain extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ListView produtosLista;
-    private ArrayList<Produtos> produtos;
-    private MeuAdapter meuAdapter;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loja_main);
 
-
         FragmentManager fragMan = getFragmentManager();
         FragmentTransaction fragTran = fragMan.beginTransaction();
-
         ContentMain fragmain = new ContentMain();
-        fragTran.add(R.id.mainfrag, fragmain);
-        fragTran.commit();
 
+        fragTran.add(R.id.mainfrag, fragmain, "fragdocao");
+        fragTran.commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -134,25 +128,25 @@ public class LojaMain extends AppCompatActivity
 
         }
 
+//        getFragmentManager().beginTransaction().replace(R.id.mainfrag, new ContentMain()).commit();
+//        LayoutInflater inflador = LayoutInflater.from(getApplicationContext());
+//        View v = inflador.inflate(R.layout.prodlist_activity, null);
+//        ListView produtosLista = (ListView) v.findViewById(R.id.listProd);
+
         ArrayList<Produtos> prod1 = Produtos.getProdutos();
-        produtosLista = (ListView)findViewById(R.id.listProd);
+        ArrayList<Produtos> prod2 = Produtos.fazoteste(prod1, strDepa);
 
-        for (int i = 0; i < prod1.size(); i++) {
-            if (strDepa == null) { break; }
-            Produtos prod2 = prod1.get(i);
-            String prod3 = prod2.prodDepa;
-            if(prod3 != strDepa) {
-                prod1.remove(prod2);
-                i--;
-            }
-        }
+        ListView produtosLista = (ListView) findViewById(R.id.listProd);
 
+        MeuAdapter meuAdapter = new MeuAdapter(this, prod2);
         produtosLista.setAdapter(null);
-        meuAdapter = new MeuAdapter(this, prod1);
         produtosLista.setAdapter(meuAdapter);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

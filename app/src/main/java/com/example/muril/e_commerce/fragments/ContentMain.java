@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.muril.e_commerce.util.MensagemUtil;
 import com.example.muril.e_commerce.util.MeuAdapter;
 import com.example.muril.e_commerce.Produtos;
 import com.example.muril.e_commerce.R;
@@ -27,22 +28,25 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
     MeuAdapter meuAdapter;
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        produtos = Produtos.getProdutos();
-        meuAdapter = new MeuAdapter(getActivity(), produtos);
-
 
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        produtos = Produtos.getProdutos();
+
         View v = inflater.inflate(R.layout.prodlist_activity, container, false);
+
+        meuAdapter = new MeuAdapter(getActivity(), produtos);
         produtosLista = (ListView) v.findViewById(R.id.listProd);
         produtosLista.setAdapter(meuAdapter);
-        //produtosLista.setOnItemClickListener(this);
+        produtosLista.setOnItemClickListener(this);
 
         return v;
     }
@@ -50,6 +54,14 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Produtos prod2 = meuAdapter.getItem(position);
+        MensagemUtil.addMsg(this.getActivity(), "Escolhido: " + prod2.prodNome);
+
+        ProdutoMain produtoFrag = new ProdutoMain();
+        Bundle dados = new Bundle();
+        dados.putString("DADOSFRAG", prod2.prodNome);
+        produtoFrag.setArguments(dados);
+        getFragmentManager().beginTransaction().replace(R.id.mainfrag, produtoFrag).commit();
 
     }
 }

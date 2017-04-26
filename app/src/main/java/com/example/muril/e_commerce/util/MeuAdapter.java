@@ -33,7 +33,7 @@ public class MeuAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Produtos getItem(int position) {
         return produtos.get(position);
     }
 
@@ -45,7 +45,10 @@ public class MeuAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View v, ViewGroup parent) {
         Produtos produto = produtos.get(position);
-        v = inflador.inflate(R.layout.prodlist_form, null);
+
+        if (v == null) {
+            v = inflador.inflate(R.layout.prodlist_form, parent, false);
+        }
 
 
         String prod2 = Integer.toString(produto.prodPrec);

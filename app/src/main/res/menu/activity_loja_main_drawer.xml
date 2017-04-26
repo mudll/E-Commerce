@@ -6,6 +6,7 @@
         android:id="@+id/nav_todo"/>
     <item android:title="Informática">
         <menu>
+            <group>
             <item
                 android:id="@+id/nav_desk"
                 android:icon="@mipmap/ic_desktop_windows_black_48dp"
@@ -19,6 +20,7 @@
                 android:id="@+id/nav_aces"
                 android:icon="@mipmap/ic_mouse_black_48dp"
                 android:title="Acessórios" />
+            </group>
         </menu>
     </item>
 
