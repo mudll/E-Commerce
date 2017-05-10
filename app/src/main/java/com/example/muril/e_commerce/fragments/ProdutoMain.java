@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.muril.e_commerce.Produtos;
 import com.example.muril.e_commerce.R;
 
 /**
@@ -26,15 +24,10 @@ public class ProdutoMain extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
-
-
         View v = inflater.inflate(R.layout.produto_main, container, false);
-        ((TextView) v.findViewById(R.id.textView3)).setText(getArguments().getString("DADOSFRAG").toString());
-
-
-
+        ((TextView) v.findViewById(R.id.textView3)).setText(getArguments().getString("DADOSFRAG"));
         return v;
 
     }
+
 }

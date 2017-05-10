@@ -26,8 +26,7 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
     ArrayList<Produtos> produtos;
     ListView produtosLista;
     MeuAdapter meuAdapter;
-
-
+    String strmaster;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,11 +34,20 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
 
     }
 
+    public ContentMain vaindo(String str){
+        strmaster = str;
+        return null;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        produtos = Produtos.getProdutos();
+        if (strmaster == null) {
+            produtos = Produtos.getProdutos();
+        } else {
+            produtos = Produtos.fazoteste(strmaster);
+        }
 
         View v = inflater.inflate(R.layout.prodlist_activity, container, false);
 
@@ -50,6 +58,8 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
 
         return v;
     }
+
+
 
 
     @Override

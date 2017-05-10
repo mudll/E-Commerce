@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_usuario"
+            android:text="Usuário: "
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_usuario_valor"
+            android:hint="Fulano de Tal"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/conf_usuario"
+            android:layout_marginStart="13dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_senha"
+            android:text="Trocar Senha: "
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/conf_email"
+            android:layout_alignParentStart="true" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_senha_valor"
+            android:hint="Senha Atual"
+            android:layout_toRightOf="@+id/conf_email"
+            android:layout_below="@id/conf_senha"
+            android:inputType="textPassword"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_senha_nova1"
+            android:hint="Nova Senha"
+            android:layout_toRightOf="@+id/conf_email"
+            android:layout_below="@id/conf_senha_valor"
+            android:inputType="textPassword"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_senha_nova2"
+            android:hint="Repetir Nova Senha"
+            android:layout_toRightOf="@+id/conf_email"
+            android:layout_below="@id/conf_senha_nova1"
+            android:inputType="textPassword"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_email"
+            android:text="Email: "
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:layout_below="@+id/conf_usuario"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="19dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/conf_email_valor"
+            android:hint="fulanotal@vaiq.com"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:layout_above="@+id/conf_senha"
+            android:layout_toEndOf="@+id/conf_email" />
+
+        <Button
+            android:text="Confirmar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnConf"
+            android:layout_below="@+id/conf_senha_nova2"
+            android:layout_alignEnd="@+id/conf_email_valor"
+            android:layout_marginTop="14dp"
+            />
+
+
+    </RelativeLayout>
