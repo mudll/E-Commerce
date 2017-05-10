@@ -1,11 +1,5 @@
 package com.example.muril.e_commerce;
 
-
-
-import android.widget.ListView;
-
-import com.example.muril.e_commerce.util.MeuAdapter;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -16,7 +10,7 @@ import java.util.ArrayList;
 public class Produtos implements Serializable {
 
     public String prodNome;
-    public String prodDepa;
+    private String prodDepa;
     public int prodPrec;
     public String prodDesc;
 
@@ -27,8 +21,8 @@ public class Produtos implements Serializable {
         this.prodDesc = prodDesc;
     }
 
-    public static ArrayList<Produtos> getProdutos(){
-        ArrayList<Produtos> produtos = new ArrayList<Produtos>();
+    public static ArrayList<Produtos> getProdutos() {
+        ArrayList<Produtos> produtos = new ArrayList<>();
 
         produtos.add(new Produtos("NoteBook Dell", "Notebook", 2600, "Notebook i7 Dell"));
         produtos.add(new Produtos("NoteBook iMac", "Notebook", 4500, "MacAir i3"));
@@ -47,27 +41,25 @@ public class Produtos implements Serializable {
 
     }
 
-    public static ArrayList<Produtos> fazoteste(ArrayList<Produtos> prod, String arg2) {
+    public static ArrayList<Produtos> fazoteste(String arg2) {
 
-        String strDepa = arg2;
+        ArrayList<Produtos> prod = Produtos.getProdutos();
+
 
         for (int i = 0; i < prod.size(); i++) {
-            if (strDepa == null) {
+            if (arg2 == null) {
                 prod = Produtos.getProdutos();
                 break;
             }
             Produtos prod2 = prod.get(i);
             String prod3 = prod2.prodDepa;
-            if(prod3 != strDepa) {
+            if (!prod3.equals(arg2)) {
                 prod.remove(prod2);
                 i--;
             }
         }
-
-
         return prod;
     }
-
 
 
 }
