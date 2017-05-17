@@ -1,15 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
-        android:text="TESTANDO OS PARANAUES"
+        android:layout_height="wrap_content"
+        android:id="@+id/prodNome"
+        android:textStyle="bold"
+        android:hint="Produto"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="211dp" />
+
+    <TextView
+        android:hint="Descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/prodDesc"
+        android:layout_below="@+id/prodNome"
+        android:layout_alignStart="@+id/prodNome"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:text="R$"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/prodPreco"
+        android:id="@+id/prodCif"
+        android:layout_toStartOf="@+id/prodPreco" />
+
+    <TextView
+        android:text="ESPECIFICAÇÔES:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prodDesc"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp"
+        android:id="@+id/prodEsp"
+        android:textStyle="normal|bold"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:hint="100000"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/prodPreco"
+        android:textAlignment="textEnd"
+        android:layout_above="@+id/prodDesc"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_laptop_mac_black_48dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="63dp"
-        android:id="@+id/textView3" />
+        android:id="@+id/imageView2"
+        android:layout_toStartOf="@+id/prodNome"
+        android:layout_above="@+id/prodEsp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@mipmap/ic_add_shopping_cart_black_48dp"
+        android:layout_below="@+id/prodDesc"
+        android:layout_toEndOf="@+id/prodCif"
+        android:id="@+id/prodFab"
+        app:backgroundTint="@android:color/holo_green_dark" />
+
+    <Button
+        android:text="VOLTAR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/buttonVolt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
+
+
 </RelativeLayout>
