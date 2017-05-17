@@ -129,5 +129,29 @@ public class Validate {
         }
     }
 
+    public final static boolean validateLogin(ArrayList<ArrayFormEdit> senhaForm) {
+        EditText new_senha = null;
+        EditText new_repitasenha = null;
+
+        for (int i = 0; i < senhaForm.size(); i++) {
+            EditText editTxt = senhaForm.get(i).editTxt;
+            String passCmp = senhaForm.get(i).editNme;
+            if (passCmp.equals("Login")) {
+                new_senha = editTxt;
+            } else if (passCmp.equals("Senha")) {
+                new_repitasenha = editTxt;
+            }
+        }
+
+        if (new_senha.getText().toString().equals(new_repitasenha.getText().toString())) {
+            return true;
+        } else {
+            new_repitasenha.setFocusable(true);
+            new_repitasenha.requestFocus();
+            new_repitasenha.setError("Autenticação Inválida");
+            return false;
+        }
+    }
+
 
 }

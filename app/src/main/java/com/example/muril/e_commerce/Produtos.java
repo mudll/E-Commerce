@@ -10,9 +10,10 @@ import java.util.ArrayList;
 public class Produtos implements Serializable {
 
     public String prodNome;
-    private String prodDepa;
+    public String prodDepa;
     public int prodPrec;
     public String prodDesc;
+
 
     public Produtos(String prodNome, String prodDepa, int prodPrec, String prodDesc) {
         this.prodNome = prodNome;

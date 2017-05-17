@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.muril.e_commerce.util.MensagemUtil;
@@ -56,6 +57,16 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
         produtosLista.setAdapter(meuAdapter);
         produtosLista.setOnItemClickListener(this);
 
+        Button button = (Button) v.findViewById(R.id.buttonVolt2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ContentMain mFrag = new ContentMain();
+                getFragmentManager().beginTransaction().replace(R.id.mainfrag, mFrag).commit();
+
+            }
+        });
+
         return v;
     }
 
@@ -67,11 +78,10 @@ public class ContentMain extends Fragment implements AdapterView.OnItemClickList
         Produtos prod2 = meuAdapter.getItem(position);
         MensagemUtil.addMsg(this.getActivity(), "Escolhido: " + prod2.prodNome);
 
-        ProdutoMain produtoFrag = new ProdutoMain();
-        Bundle dados = new Bundle();
-        dados.putString("DADOSFRAG", prod2.prodNome);
-        produtoFrag.setArguments(dados);
-        getFragmentManager().beginTransaction().replace(R.id.mainfrag, produtoFrag).commit();
+        ProdutoMain pFrag = new ProdutoMain();
+        pFrag.dadosprod(prod2);
+
+        getFragmentManager().beginTransaction().replace(R.id.mainfrag, pFrag).commit();
 
     }
 }

@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.muril.e_commerce.util.ArrayFormEdit;
 import com.example.muril.e_commerce.util.MensagemUtil;
+import com.example.muril.e_commerce.util.Validate;
+
+import java.util.ArrayList;
 
 /**
  * Created by muril on 05/04/2017.
@@ -24,35 +28,34 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-            cadastrar = (Button) findViewById(R.id.btn_cadastrar);
+        cadastrar = (Button) findViewById(R.id.btn_cadastrar);
 
 
-            cadastrar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
-                    startActivity(intent);
-                }
-            });
+        cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void entrar (View view) {
+    public void entrar(View view) {
 
-        EditText usuario = (EditText) findViewById(R.id.edit_usuario);
-        EditText senha = (EditText) findViewById(R.id.edit_senha);
+        boolean loginOk = true;
 
-        if (usuario.getText().length() == 0) {
-            usuario.setError("Usuário Obrigatório");
-        } else {
-            if (senha.getText().length() == 0) {
-                senha.setError("Senha Obrigatória");
-            } else {
-                MensagemUtil.addMsg(LoginActivity.this, "Login Realizado Com Sucesso");
-                Intent i = new Intent(LoginActivity.this, LojaMain.class);
-                startActivity(i);
-            }
+        ArrayList<ArrayFormEdit> camposdoformulario = new ArrayList<>();
+
+        camposdoformulario.add(new ArrayFormEdit((EditText) findViewById(R.id.edit_senha), "Senha"));
+        camposdoformulario.add(new ArrayFormEdit((EditText) findViewById(R.id.edit_usuario), "Login"));
+
+        if (loginOk) loginOk = Validate.validateNotNull(camposdoformulario);
+        if (loginOk) loginOk = Validate.validateLogin(camposdoformulario);
+        if (loginOk) {
+            MensagemUtil.addMsg(LoginActivity.this, "Login Realizado Com Sucesso");
+            Intent i = new Intent(LoginActivity.this, LojaMain.class);
+            startActivity(i);
         }
-
 
     }
 }
