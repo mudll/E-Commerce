@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "437967729213",
+    "firebase_url": "https://e-commerce-aa1f2.firebaseio.com",
+    "project_id": "e-commerce-aa1f2",
+    "storage_bucket": "e-commerce-aa1f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437967729213:android:e5532849c5aa54b4",
+        "android_client_info": {
+          "package_name": "com.example.muril.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437967729213-3mvn0hq0tlh2efn1knumv238l93toaeb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muril.e_commerce",
+            "certificate_hash": "3a38f9df87b5f81aa622c0115f240435b8f5527b"
+          }
+        },
+        {
+          "client_id": "437967729213-kn6mug6kphtu5ndrc474vm0recghilih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muril.e_commerce",
+            "certificate_hash": "1b120c49484a363d86afe31b584c6b56157621c7"
+          }
+        },
+        {
+          "client_id": "437967729213-64bl5c2dtpv3tseearfkvmkq9n5ae7nd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsau4VM2_iL_q3_USez1tOG2N3RL_GWlI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437967729213-64bl5c2dtpv3tseearfkvmkq9n5ae7nd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
