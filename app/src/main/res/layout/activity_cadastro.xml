@@ -78,7 +78,8 @@
         <EditText
             android:id="@+id/new_usuario"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"/>
 
         <TextView
             android:layout_width="fill_parent"

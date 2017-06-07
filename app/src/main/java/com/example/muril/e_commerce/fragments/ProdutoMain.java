@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import com.example.muril.e_commerce.Produtos;
 import com.example.muril.e_commerce.R;
+import com.example.muril.e_commerce.Usuario;
+import com.example.muril.e_commerce.util.LibraryClass;
+import com.firebase.client.Firebase;
 
 /**
  * Created by muril on 26/04/2017.
@@ -22,6 +25,8 @@ import com.example.muril.e_commerce.R;
 public class ProdutoMain extends Fragment {
 
     Produtos prodV;
+    private Firebase firebase;
+    private Usuario userlog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,17 @@ public class ProdutoMain extends Fragment {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Adicionado ao Carrinho", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                firebase = LibraryClass.getFirebase();
+//                userlog = LibraryClass.getUser();
+//
+//                String userlognick = userlog.getNick();
+
+
+                Produtos prodt = new Produtos("Ts", "p", 100, "BD");
+                String id = firebase.push().getKey();
+                firebase.child("Carrinho").child(id).setValue(prodV);
+
+
             }
         });
 

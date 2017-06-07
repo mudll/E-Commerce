@@ -2,6 +2,7 @@ package com.example.muril.e_commerce;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,6 +44,8 @@ public class LojaMain extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Abrir Carrinho", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent i = new Intent(LojaMain.this, CarrinhoFB.class);
+                startActivity(i);
             }
         });
 
